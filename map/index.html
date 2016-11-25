@@ -62,9 +62,12 @@ var state = {
 
 function initMap() {
     var mymap = L.map('map').setView([50, 0], 5);
-    L.tileLayer('http://server.arcgisonline.com/ArcGIS/rest/services/World_Street_Map/MapServer/tile/{z}/{y}/{x}', {
-        attribution: 'Tiles &copy; Esri &mdash; Source: Esri, DeLorme, NAVTEQ, USGS, Intermap, iPC, NRCAN, Esri Japan, METI, Esri China (Hong Kong), Esri (Thailand), TomTom, 2012'
-    }).addTo(mymap);
+    L.tileLayer.wms('http://www.ign.es/wms-inspire/mapa-raster', {
+	layers: 'mtn_rasterizado',
+	format: 'image/png',
+	transparent: false,
+	continuousWorld : true,
+	attribution: 'Â© <a href="http://www.ign.es/ign/main/index.do" target="_blank">Instituto GeogrÃ¡fico Nacional de EspaÃ±a</a>'.addTo(mymap);
     return mymap;
 }
 
